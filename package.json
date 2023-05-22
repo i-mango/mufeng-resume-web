@@ -12,12 +12,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "pinia": "^2.0.36",
-    "vue": "^3.3.2",
-    "vue-router": "^4.2.0",
     "@element-plus/icons-vue": "^2.1.0",
     "element-plus": "^2.3.4",
-    "vue-i18n": "^9.2.2"
+    "particles.vue3": "^2.9.3",
+    "pinia": "^2.0.36",
+    "typeit": "^8.7.1",
+    "vue": "^3.3.2",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.2.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",
