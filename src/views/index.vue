@@ -10,12 +10,17 @@ const {own, detail, contractInfo} = ownInfo
 const GetWindowHeight = ref({
   height: ""
 });
+const GetTabsHeight =ref({
+  height:""
+})
 const GetWindowWidth = ref({
   width: ""
 });
 const getHeight = () => {
   // 获取浏览器高度
   GetWindowHeight.value.height = window.innerHeight + 'px';
+  //获取tabs-pane高度
+  GetTabsHeight.value.height = window.innerHeight - 54 + 'px';
   // 获取浏览器宽度
   GetWindowWidth.value.width = window.innerWidth - 400 - 8 + 'px';
 }
@@ -41,17 +46,24 @@ const getHeight = () => {
     <div style="width: 8px;height: 100%;background: #eeeeee;display: flex"></div>
     <!--    右侧-->
     <div class="content-right" animated :style="GetWindowWidth">
-      <el-tabs style="margin-left: 50px" class="el-tabs">
+      <el-tabs style="margin-left: 10px" class="el-tabs">
+        <el-tab-pane label="首页" :style="GetTabsHeight">
+          <div class="user-info homepage">
+            <div class="control">
+              <div class='box' id='box1'></div>
+              <div class='box' id='box2'> </div>
+              <p>专注{{own.excpect_work}}</p>
+              <div class='box' id='box3'></div>
+              <div class='box' id='box4'></div>
+            </div>
+          </div>
+        </el-tab-pane>
         <el-tab-pane label="我的信息">
-          <div class="user-info">
-            <div>
-              <span style="width:8px;height:40px;background: #a7d3f5;transform: skewY(30deg);margin-top: 52px"></span>
+          <div class="project-experience">
               <div
-                  style="width:150px;height: 40px;background: #a7d3f5;text-align: center;color: rgba(255, 255, 255, 0.88)">
+                  style="width:150px;height: 40px;background-image:linear-gradient(0deg,#fad0c4 0%, #fad0c4 1%, #ffd1ff 100%);text-align: center;color: rgba(255, 255, 255, 0.88)">
                 <p style="vertical-align: middle;">我的信息</p>
               </div>
-            </div>
-
             <ul>
               <li>姓名：{{ own.name }}</li>
               <li>年龄：{{ own.age }}</li>
@@ -62,13 +74,13 @@ const getHeight = () => {
           </div>
         </el-tab-pane>
         <el-tab-pane label="项目经验">
-          <div class="project-experience"></div>
-        </el-tab-pane>
-        <el-tab-pane label="工作经验">
           <div class="work-experience"></div>
         </el-tab-pane>
+        <el-tab-pane label="工作经验">
+          <div class="contract"></div>
+        </el-tab-pane>
         <el-tab-pane label="联系方式">
-          <div class="contract">
+          <div class="user-info">
             <div></div>
             <div>
               <div>
@@ -131,12 +143,12 @@ ul li {
 .content {
   display: flex;
   position: relative;
-  margin: 0 -32px;
+  margin: 0 -50px;
 }
 
 .content-left {
   float: left;
-  background: #b4dcef;
+  background-image:linear-gradient(0deg,#fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)
 }
 
 .aside {
@@ -178,7 +190,74 @@ ul li {
   text-align: center;
   position: relative;
 }
+.el-tabs{
 
+}
+.homepage{
+  width: 100%;
+  height: 100%;
+  background: url(../assets/pink.jpg) no-repeat;
+  opacity: 0.7;
+  background-size: 100% 120%;
+  color: #fff;
+  font-size: 32px;
+  animation: bg infinite 100s linear alternate;
+}
+@keyframes bg {
+   0% {background-size: 110% 130%; }
+   10% {background-size: 111% 131%; }
+   20% {background-size: 112% 132%; background-position: bottom;}
+   30% {background-size: 113% 133%; }
+   40% {background-size: 114% 134%;}
+   50% {background-size: 115% 135%;background-position: left;}
+   60% {background-size: 116% 136%;}
+   70% {background-size: 117% 137%;}
+   80% {background-size: 118% 138%;background-position: right;}
+   90% {background-size: 119% 139%;}
+   100% {background-size: 120% 140%;}
+ }
+.control{
+  display: inline-block;
+  position: relative;
+  top: 40%;
+}
+p{
+  text-shadow: 0px 0px 10px rgba(255,255,255,0.5);
+  letter-spacing: 10px;
+}
+.box{
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+}
+#box1{
+  border-left:8px solid;
+  border-top: 8px solid;
+  position: relative;
+  right: 150px;
+  bottom: 20px;
+}
+#box2{
+  border-top: 8px solid;
+  border-right: 8px solid;
+  position: relative;
+  left: 150px;
+  bottom: 20px;
+}
+#box3{
+  border-left: 8px solid;
+  border-bottom: 8px solid;
+  position: relative;
+  right: 150px;
+  top: 20px;
+}
+#box4{
+  border-right: 8px solid;
+  border-bottom: 8px solid;
+  position: relative;
+  left: 150px;
+  top: 20px;
+}
 .user-info {
   animation: slideInRight 1s 0.02s ease backwards;
 }
