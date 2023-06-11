@@ -1,5 +1,5 @@
 <script setup lang='ts'>
-import {onMounted, ref} from "vue";
+import {onMounted, reactive, ref} from "vue";
 import ownInfo from "../assets/ownInfo.json";
 import TypeIt from "@/components/typeit";
 import {Monitor, Headset, MessageBox, Message} from "@element-plus/icons-vue";
@@ -23,6 +23,10 @@ const GetTabsWidth = ref({
 const GetWindowsWidth = ref({
   width: ""
 });
+const userInfoForm=reactive({
+  title: "",
+  message:""
+})
 const getHeight = () => {
   // 获取浏览器高度
   GetWindowHeight.value.height = window.innerHeight + 'px';
@@ -132,12 +136,12 @@ const getHeight = () => {
                 <el-card>
                   <div style="display:flex;">
                     <div>
-                      <el-form>
+                      <el-form :model="userInfoForm">
                         <el-form-item>
-                          <el-input :prefix-icon="Message" placeholder="字体" style="height: 40px"/>
+                          <el-input v-model="userInfoForm.title" :prefix-icon="Message" placeholder="字体" style="height: 40px"/>
                           <br>
                           <br>
-                          <el-input type="textarea" placeholder="message" :rows="10"/>
+                          <el-input v-model="userInfoForm.message" type="textarea" placeholder="message" :rows="10"/>
                         </el-form-item>
                         <el-form-item>
                           <el-button type="primary" plain>发送</el-button>
@@ -174,6 +178,7 @@ const getHeight = () => {
                     </div>
                     <a :href="own.github" target="_blank" style="margin-left: 80px"><img src="../assets/github.svg" alt=""></a>
                     <a :href="own.blog" target="_blank" style="margin-left: 10px"><img src="../assets/blog.svg" alt=""></a>
+                    <a :href="own.gitee" target="_blank" style="margin-left: 10px"><img src="../assets/gitee.png" alt=""></a>
                     <a :href="own.resume" target="_blank" style="margin-left: 10px">
                       <img src="../assets/favicon.ico" alt="" style="width: 32px;height: 32px">
                     </a>
