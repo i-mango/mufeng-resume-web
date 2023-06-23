@@ -2,7 +2,7 @@
 import {onMounted, reactive, ref} from "vue";
 import ownInfo from "../assets/ownInfo.json";
 import TypeIt from "@/components/typeit";
-import {Monitor, Headset, MessageBox, Message} from "@element-plus/icons-vue";
+import {Monitor, Headset, MessageBox, Message, Setting} from "@element-plus/icons-vue";
 
 onMounted(() => {
   getHeight()
@@ -23,10 +23,11 @@ const GetTabsWidth = ref({
 const GetWindowsWidth = ref({
   width: ""
 });
-const userInfoForm=reactive({
+const userInfoForm = reactive({
   title: "",
-  message:""
-})
+  message: ""
+});
+const isThemeView = ref(false);
 const getHeight = () => {
   // 获取浏览器高度
   GetWindowHeight.value.height = window.innerHeight + 'px';
@@ -187,7 +188,6 @@ const getHeight = () => {
               </div>
             </el-tab-pane>
           </el-tabs>
-
         </div>
       </div>
     </el-main>
@@ -258,6 +258,10 @@ a:hover{
 >>> .el-tabs__item{
   padding-left: 60px;
   padding-right: 60px;
+}
+.setting-btn{
+  float: right;
+  color: #181818;
 }
 .homepage{
   width: 100%;
