@@ -12,7 +12,7 @@ export default {
   },
   methods: {
     // 点击菜单栏的选择，自动滚动到对应的视图
-    async handleSelect (index) {
+    async handleSelect(index) {
       let name = ''
       if (index === '1') name = 'homepage'
       if (index === '4') name = 'word-exp'
@@ -56,7 +56,6 @@ export default {
   width: 100%;
   top: 0;
   z-index: 100;
-  margin-left: -4%;
 }
 .el-menu--horizontal{
   height: 100px;
