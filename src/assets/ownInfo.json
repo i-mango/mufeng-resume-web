@@ -15,6 +15,9 @@
     "resume": "https://www.manggo.cn/",
     "address": "重庆"
   },
+  "skills": {
+    "language": ["Java","SpringBoot","Linux","JavaScript","Vue","MySQL","Nginx","Maven","Docker"]
+  },
   "detail": {
     "motto": [
       "明天不一定会更好，但要坚信更好的明天一定会来。",
